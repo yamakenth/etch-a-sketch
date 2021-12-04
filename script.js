@@ -3,16 +3,8 @@ const initialGridSize = 16;
 createGrids(initialGridSize);
 // change color of grid when hover 
 addHoverEffect();
-
 // reset and resize grid 
-let clearButton = document.querySelector('.clear-button');
-clearButton.addEventListener('click', () => {
-  deleteGrids();
-  let newGridSize = promptNewGridSize();
-  console.log(newGridSize);
-  createGrids(newGridSize); 
-  addHoverEffect();
-});
+addNewGrid();
 
 // create grids 
 // take in grid size 
@@ -48,15 +40,31 @@ function changeColor() {
   this.style.backgroundColor = '#000000';
 }
 
+// add new grid with new size
+// take in no parameters 
+// return no results 
+function addNewGrid() {
+  let clearButton = document.querySelector('.clear-button');
+  clearButton.addEventListener('click', () => {
+    let newGridSize = promptNewGridSize();
+    if (newGridSize === 'cancel') { // if cancel then don't create new grid 
+      return;
+    }
+    deleteGrids();
+    createGrids(newGridSize); 
+    addHoverEffect();
+  });
+}
+
 // prompt user for new grid size 
 // take in no parameters 
 // return new grid size 
 function promptNewGridSize() {
-  let newGridSize = null;
+  let newGridSize = 0;
   do {
     let input = prompt('Enter desired grid size. Grid size must be between 1 and 100');
     if (input === null) {
-      break;
+      return 'cancel';
     }
     newGridSize = parseInt(input);
   } while (isNaN(newGridSize) || newGridSize <= 0 || newGridSize > 100);
