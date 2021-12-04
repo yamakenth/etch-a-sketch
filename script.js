@@ -1,37 +1,18 @@
 // create grids 
 const initialGridSize = 16;
 createGrids(initialGridSize);
-
 // change color of grid when hover 
-let grids = document.querySelectorAll('.grid');
-grids.forEach((grid) => {
-  grid.addEventListener('mouseenter', changeColor);
-}); 
+addHoverEffect();
 
-/*
 // reset and resize grid 
 let clearButton = document.querySelector('.clear-button');
 clearButton.addEventListener('click', () => {
-  // *************** delete old grids
   deleteGrids();
-  // *************** delete old grids
-  
-  // reset
-  let grids = document.querySelectorAll('.grid');
-  grids.forEach((grid) => grid.style.backgroundColor = '#ffffff');
-  // resize 
-  let newGridSize = 0;
-  do {
-    let input = prompt('Enter desired grid size. Grid size must be between 1 and 100');
-    if (input === null) {
-      break;
-    }
-    newGridSize = parseInt(input);
-  } while (isNaN(newGridSize) || newGridSize <= 0 || newGridSize > 100);
-  createGrids(newGridSize);
-  
+  let newGridSize = promptNewGridSize();
+  console.log(newGridSize);
+  createGrids(newGridSize); 
+  addHoverEffect();
 });
-*/
 
 // create grids 
 // take in grid size 
@@ -50,6 +31,16 @@ function createGrids(gridSize) {
   }
 }
 
+// add eventListener for hover action 
+// take in no parameters 
+// return no results 
+function addHoverEffect() {
+  let grids = document.querySelectorAll('.grid');
+  grids.forEach((grid) => {
+    grid.addEventListener('mouseenter', changeColor);
+  }); 
+}
+
 // change color of each grid area 
 // take in no parameters
 // return no results 
@@ -57,10 +48,25 @@ function changeColor() {
   this.style.backgroundColor = '#000000';
 }
 
+// prompt user for new grid size 
+// take in no parameters 
+// return new grid size 
+function promptNewGridSize() {
+  let newGridSize = null;
+  do {
+    let input = prompt('Enter desired grid size. Grid size must be between 1 and 100');
+    if (input === null) {
+      break;
+    }
+    newGridSize = parseInt(input);
+  } while (isNaN(newGridSize) || newGridSize <= 0 || newGridSize > 100);
+  
+  return newGridSize;
+}
+
 // delete grids 
 // take in no parameters
 // return no results 
-/*
 function deleteGrids() {
   let gridContainer = document.querySelector('.grid-container');
   let gridContainerChild = gridContainer.lastElementChild;
@@ -69,4 +75,3 @@ function deleteGrids() {
     gridContainerChild = gridContainer.lastElementChild;
   }
 }
-*/
