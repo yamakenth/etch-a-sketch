@@ -1,3 +1,4 @@
+// create grids 
 let gridSize = 16;
 let gridContainer = document.querySelector('.grid-container');
 for (let i = 0; i < gridSize; i++) {
@@ -9,4 +10,15 @@ for (let i = 0; i < gridSize; i++) {
     gridRow.appendChild(grid);
   }
   gridContainer.appendChild(gridRow);
+}
+
+// change color of grid when hover 
+let grids = document.querySelectorAll('.grid');
+grids.forEach((grid) => {
+  grid.addEventListener('mouseenter', changeColor);
+}); 
+
+// function to change color of each grid 
+function changeColor() {
+  this.style.backgroundColor = '#000000';
 }
