@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Gloria Hallelujah', cursive;
 }
 
 body {
@@ -7,12 +8,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-color: #8b0000;
-  font-family: 'Gloria Hallelujah', cursive;
+  background: rgb(2,0,36);
+  background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(121,9,21,1) 57%, rgba(0,212,255,1) 100%);
 }
 
 .header {
-  font-size: 24px;
+  font-size: 20px;
   color: #daa520;
 }
 
@@ -20,7 +21,7 @@ body {
   padding: 12px;
   height: 600px;
   width: 600px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   display: flex;
   flex-direction: column;
 }
@@ -37,10 +38,11 @@ body {
 }
 
 .clear-button {
-  font-size: 18px;
-  border-radius: 12px;
-  padding: 4px 12px;
-  background-color: #f5f5f5;
-  border: 1px solid #000000;
-  box-shadow: 3px 3px #0000005d;
+  font-size: 16px;
+  font-weight: 900;
+  border-radius: 50%;
+  height: 60px;
+  background-color: #adff2f;
+  border: 1px solid #008000;
+  box-shadow: 5px 5px #3d00008e;
 }
