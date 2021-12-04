@@ -37,7 +37,18 @@ function addHoverEffect() {
 // take in no parameters
 // return no results 
 function changeColor() {
-  this.style.backgroundColor = '#000000';
+  const intensities = [];
+  for (let i = 0; i < 3; i++) {
+    intensities.push(generateRandomIntensity());
+  }
+  this.style.backgroundColor = `rgb(${intensities[0]}, ${intensities[1]}, ${intensities[2]})`;
+}
+
+// generate a random number between 0 and 255 
+// take in no parameters 
+// return a random number 
+function generateRandomIntensity() {
+  return Math.floor(Math.random() * 256);
 }
 
 // add new grid with new size
